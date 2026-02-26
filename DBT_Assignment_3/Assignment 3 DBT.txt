@@ -1,5 +1,7 @@
 Assignment 3 DBT
 
+Write a query to get unique department ID from 
+employee table.
 mysql> SELECT DISTINCT department_id FROM employees;
 +---------------+
 | department_id |
@@ -20,7 +22,9 @@ mysql> SELECT DISTINCT department_id FROM employees;
 
 
 
-
+Write a query to get all the employee’s details from the 
+employees table displaying the first names in descending 
+order. 
 mysql> SELECT * FROM employees ORDER BY FIRST_NAME desc;
 +-------------+-------------+-------------+-----------+----------------+------------+------------+----------+----------------+------------+---------------+
 | EMPLOYEE_ID | FIRST_NAME  | LAST_NAME   | EMAIL     | PHONE_NUMBER   | HIRE_DATE  | JOB_ID     | SALARY   | COMMISSION_PCT | MANAGER_ID | DEPARTMENT_ID |
@@ -137,7 +141,9 @@ mysql> SELECT * FROM employees ORDER BY FIRST_NAME desc;
 
 
 
-
+Write a query to get the employee ID, names 
+(first_name and last_name), salary in ascending order of 
+salary. 
 mysql> SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY FROM employees ORDER BY salary;
 +-------------+-------------+-------------+----------+
 | EMPLOYEE_ID | FIRST_NAME  | LAST_NAME   | SALARY   |
@@ -254,7 +260,8 @@ mysql> SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY FROM employees ORDER BY
 
 
 
-
+Display first name and joining date of the employees 
+who are either IT Programmer or Sales Man.
 mysql> SELECT FIRST_NAME, HIRE_DATE FROM employees WHERE job_id='IT_PROG' OR job_id='SA_MAN';
 +------------+------------+
 | FIRST_NAME | HIRE_DATE  |
@@ -275,7 +282,7 @@ mysql> SELECT FIRST_NAME, HIRE_DATE FROM employees WHERE job_id='IT_PROG' OR job
 
 
 
-
+Display details of employees with employee ID 150 or 160. 
 mysql> SELECT * FROM employees WHERE EMPLOYEE_ID=150 OR EMPLOYEE_ID=160;
 +-------------+------------+-----------+---------+----------------+------------+--------+----------+----------------+------------+---------------+
 | EMPLOYEE_ID | FIRST_NAME | LAST_NAME | EMAIL   | PHONE_NUMBER   | HIRE_DATE  | JOB_ID | SALARY   | COMMISSION_PCT | MANAGER_ID | DEPARTMENT_ID |
@@ -287,7 +294,8 @@ mysql> SELECT * FROM employees WHERE EMPLOYEE_ID=150 OR EMPLOYEE_ID=160;
 
 
 
-
+Display first name, salary, commission pct, and hire date 
+for employees with salary less than 10000.
 mysql> SELECT FIRST_NAME, SALARY, COMMISSION_PCT, HIRE_DATE FROM employees WHERE salary<10000;
 +-------------+---------+----------------+------------+
 | FIRST_NAME  | SALARY  | COMMISSION_PCT | HIRE_DATE  |
@@ -384,7 +392,8 @@ mysql> SELECT FIRST_NAME, SALARY, COMMISSION_PCT, HIRE_DATE FROM employees WHERE
 
 
 
-
+Display employees where the first name or last name 
+starts with S.
 mysql> SELECT * FROM employees WHERE FIRST_NAME LIKE "S%" OR LAST_NAME LIKE "S%";
 +-------------+------------+-----------+----------+----------------+------------+------------+----------+----------------+------------+---------------+
 | EMPLOYEE_ID | FIRST_NAME | LAST_NAME | EMAIL    | PHONE_NUMBER   | HIRE_DATE  | JOB_ID     | SALARY   | COMMISSION_PCT | MANAGER_ID | DEPARTMENT_ID |
@@ -417,7 +426,7 @@ mysql> SELECT * FROM employees WHERE FIRST_NAME LIKE "S%" OR LAST_NAME LIKE "S%"
 
 
 
-
+Display details of jobs in the descending order of the title.
 mysql> SELECT * FROM employees ORDER BY JOB_ID desc;
 +-------------+-------------+-------------+-----------+----------------+------------+------------+----------+----------------+------------+---------------+
 | EMPLOYEE_ID | FIRST_NAME  | LAST_NAME   | EMAIL     | PHONE_NUMBER   | HIRE_DATE  | JOB_ID     | SALARY   | COMMISSION_PCT | MANAGER_ID | DEPARTMENT_ID |
@@ -533,7 +542,9 @@ mysql> SELECT * FROM employees ORDER BY JOB_ID desc;
 
 
 
-
+Display the details of the employees from department 30, 
+earning the salary greater 10000 but do not receive the 
+commission.
 mysql> SELECT * FROM employees WHERE DEPARTMENT_ID=30 AND salary>10000 AND COMMISSION_PCT IS NULL;
 +-------------+------------+-----------+-------+----------------+------------+--------+----------+----------------+------------+---------------+
 | EMPLOYEE_ID | FIRST_NAME | LAST_NAME | EMAIL | PHONE_NUMBER   | HIRE_DATE  | JOB_ID | SALARY   | COMMISSION_PCT | MANAGER_ID | DEPARTMENT_ID |
@@ -544,7 +555,8 @@ mysql> SELECT * FROM employees WHERE DEPARTMENT_ID=30 AND salary>10000 AND COMMI
 
 
 
-
+ Display the details of employees reporting to the managers 
+with employee id 100 and 120. 
 mysql> SELECT * FROM employees WHERE MANAGER_ID IN (100,120);
 +-------------+------------+-------------+----------+----------------+------------+----------+----------+----------------+------------+---------------+
 | EMPLOYEE_ID | FIRST_NAME | LAST_NAME   | EMAIL    | PHONE_NUMBER   | HIRE_DATE  | JOB_ID   | SALARY   | COMMISSION_PCT | MANAGER_ID | DEPARTMENT_ID |
@@ -576,7 +588,7 @@ mysql> SELECT * FROM employees WHERE MANAGER_ID IN (100,120);
 
 
 
-
+Display the unique country_id from locations table.
 mysql> SELECT DISTINCT COUNTRY_ID FROM locations;
 +------------+
 | COUNTRY_ID |
@@ -597,7 +609,8 @@ mysql> SELECT DISTINCT COUNTRY_ID FROM locations;
 | US         |
 +------------+
 
-
+Display all employees whose have the job_id as 
+IT_PROG and FI_ACCOUNT. 
 mysql> SELECT * FROM EMPLOYEES WHERE JOB_ID='IT_PROG' OR JOB_ID='FI_ACCOUNT';
 +-------------+-------------+-----------+-----------+----------------+------------+------------+---------+----------------+------------+---------------+
 | EMPLOYEE_ID | FIRST_NAME  | LAST_NAME | EMAIL     | PHONE_NUMBER   | HIRE_DATE  | JOB_ID     | SALARY  | COMMISSION_PCT | MANAGER_ID | DEPARTMENT_ID |
@@ -616,7 +629,7 @@ mysql> SELECT * FROM EMPLOYEES WHERE JOB_ID='IT_PROG' OR JOB_ID='FI_ACCOUNT';
 
 
 
-
+Display all countries in ascending order.
 mysql> SELECT * FROM Countries ORDER BY COUNTRY_NAME;
 +------------+------------------------------------------+-----------+
 | COUNTRY_ID | COUNTRY_NAME                             | REGION_ID |

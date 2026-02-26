@@ -62,14 +62,12 @@ mysql> SELECT * FROM orders WHERE amt > 1000;
 Write a query that will give you the names and cities of 
 all salespeople in London with a commission above 0.10.
 
-mysql> SELECT sname, city FROM salespeople WHERE comm>0.10;
+mysql> SELECT sname, city FROM salespeople WHERE comm>0.10 AND city = "London";
 +--------+-----------+
 | sname  | city      |
 +--------+-----------+
 | Peel   | London    |
-| Serres | San Jose  |
 | Motika | London    |
-| Rifkin | Barcelona |
 +--------+-----------+
 
 
